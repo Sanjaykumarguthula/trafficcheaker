@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Traffic Checker</title>
+    <title>Traffic Statistics</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -19,53 +19,36 @@
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
-        input[type="text"] {
-            width: 70%;
-            padding: 10px;
-            margin-right: 10px;
-            border: 1px solid #ddd;
-            border-radius: 3px;
+        h1 {
+            text-align: center;
         }
-        button {
-            padding: 10px 20px;
-            border: none;
-            background-color: #5cb85c;
-            color: white;
-            border-radius: 3px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #4cae4c;
-        }
-        #result {
+        .stats {
+            display: flex;
+            justify-content: space-around;
             margin-top: 20px;
-            padding: 10px;
-            border: 1px solid #ddd;
-            background-color: #f9f9f9;
+        }
+        .stat {
+            text-align: center;
+        }
+        .stat h2 {
+            margin: 0;
+            font-size: 2em;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Website Traffic Checker</h1>
-        <input type="text" id="websiteUrl" placeholder="Enter website URL">
-        <button onclick="checkTraffic()">Check Traffic</button>
-        <div id="result"></div>
+        <h1>Traffic Statistics</h1>
+        <div class="stats">
+            <div class="stat">
+                <h2>{{visits}}</h2>
+                <p>Total Visits</p>
+            </div>
+            <div class="stat">
+                <h2>{{uniqueVisitors}}</h2>
+                <p>Unique Visitors</p>
+            </div>
+        </div>
     </div>
-
-    <script>
-        function checkTraffic() {
-            var url = document.getElementById('websiteUrl').value;
-            var resultDiv = document.getElementById('result');
-            if (url === "") {
-                resultDiv.innerHTML = "Please enter a URL.";
-                return;
-            }
-
-            // This is a mock response. In a real application, you would use an API to get traffic data.
-            var mockTraffic = Math.floor(Math.random() * 1000000);
-            resultDiv.innerHTML = "Estimated traffic for " + url + ": " + mockTraffic + " visitors/month.";
-        }
-    </script>
 </body>
 </html>
