@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Traffic Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input[type="text"] {
+            width: 70%;
+            padding: 10px;
+            margin-right: 10px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #5cb85c;
+            color: white;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #4cae4c;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Website Traffic Checker</h1>
+        <input type="text" id="websiteUrl" placeholder="Enter website URL">
+        <button onclick="checkTraffic()">Check Traffic</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function checkTraffic() {
+            var url = document.getElementById('websiteUrl').value;
+            var resultDiv = document.getElementById('result');
+            if (url === "") {
+                resultDiv.innerHTML = "Please enter a URL.";
+                return;
+            }
+
+            // This is a mock response. In a real application, you would use an API to get traffic data.
+            var mockTraffic = Math.floor(Math.random() * 1000000);
+            resultDiv.innerHTML = "Estimated traffic for " + url + ": " + mockTraffic + " visitors/month.";
+        }
+    </script>
+</body>
+</html>
