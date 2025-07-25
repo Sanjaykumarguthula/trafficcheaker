@@ -38,8 +38,37 @@ const server = http.createServer((req, res) => {
                 res.end(renderedHtml);
             });
         });
-    }
-    else {
+    } else if (req.method === 'GET' && req.url === '/games') {
+        fs.readFile('games.html', 'utf8', (err, html) => {
+            if (err) {
+                res.statusCode = 500;
+                res.end('Error reading games.html');
+                return;
+            }
+            res.setHeader('Content-Type', 'text/html');
+            res.end(html);
+        });
+    } else if (req.method === 'GET' && req.url === '/tools') {
+        fs.readFile('tools.html', 'utf8', (err, html) => {
+            if (err) {
+                res.statusCode = 500;
+                res.end('Error reading tools.html');
+                return;
+            }
+            res.setHeader('Content-Type', 'text/html');
+            res.end(html);
+        });
+    } else if (req.method === 'GET' && req.url === '/style.css') {
+        fs.readFile('style.css', 'utf8', (err, css) => {
+            if (err) {
+                res.statusCode = 500;
+                res.end('Error reading style.css');
+                return;
+            }
+            res.setHeader('Content-Type', 'text/css');
+            res.end(css);
+        });
+    } else {
         res.statusCode = 404;
         res.end('Not Found');
     }
